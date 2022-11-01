@@ -1,20 +1,19 @@
 // npm
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // files
-import Home from "./pages/Home/Home";
-import Welcome from "./pages/Welcome/Welcome";
+import LoggedIn from "./routes/LoggedIn";
+import LoggedOut from "./routes/LoggedOut";
+
+import useAuthContext from "./hooks/useAuthContext";
 
 function App() {
-  const user = "";
+  // properties
+  const { user, authIsReady } = useAuthContext();
+
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          {!user && <Route path="/" element={<Welcome />} />}
-          {user && <Route path="/" element={<Home />} />}
-        </Routes>
-      </Router>
+      {authIsReady && <Router>{!user ? <LoggedOut /> : <LoggedIn />}</Router>}
     </div>
   );
 }

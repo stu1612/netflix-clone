@@ -1,5 +1,11 @@
-import React from "react";
+// npm
+import { Link } from "react-router-dom";
 
 export default function Welcome() {
-  return <div>Welcome</div>;
+  return (
+    <div>
+      <h1>Welcome</h1>
+      <Link to={"/signup"}>Signup</Link>
+    </div>
+  );
 }
