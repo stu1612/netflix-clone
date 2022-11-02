@@ -2,8 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 
 // files
-import Welcome from "../pages/Welcome/Welcome";
-import SignUp from "../pages/SignUp/SignUp";
+import Welcome from "../pages/Welcome";
+import SignUp from "../pages/SignUp";
 
 export default function LoggedOut() {
   return (

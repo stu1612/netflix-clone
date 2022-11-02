@@ -1,0 +1,21 @@
+@import-normalize;
+
+fieldset {
+  border: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dot {
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 10px;
+  pointer-events: none;
+}

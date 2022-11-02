@@ -6,6 +6,7 @@ import LoggedIn from "./routes/LoggedIn";
 import LoggedOut from "./routes/LoggedOut";
 
 import useAuthContext from "./hooks/useAuthContext";
+import "./app.css";
 
 function App() {
   // properties
