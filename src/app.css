@@ -1,9 +1,90 @@
 @import-normalize;
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cl-primary-500: #e50914;
+  --cl-primary-700: #c60912;
+  --cl-dark: #111;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: var(--cl-dark);
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+  cursor: pointer;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  border: 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
 fieldset {
   border: none;
 }
 
+/* special styles for stu */
 .container {
   display: flex;
   flex-direction: row;
