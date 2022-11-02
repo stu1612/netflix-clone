@@ -6,21 +6,21 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "../components/Modal";
 import useModal from "../hooks/useModal";
 import Loader from "../components/Loader";
-import useSignUp from "../hooks/useSignUp";
+import useLogin from "../hooks/useLogin";
 
 export default function SignUp() {
   // local state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // properties
-  const { error, signup } = useSignUp();
+  const { error, login } = useLogin();
   const { isShowing, toggle } = useModal();
   const navigate = useNavigate();
 
   // methods
   function handleSubmit(event) {
     event.preventDefault();
-    signup(email, password);
+    login(email, password);
     if (email && password) {
       setEmail("");
       setPassword("");
@@ -35,7 +35,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <h1>Sign up</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
