@@ -1,0 +1,28 @@
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.nav__logo {
+  object-fit: contain;
+  width: 150px;
+}
+
+.nav__btn {
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: var(--cl-primary-500);
+  color: #fff;
+  padding: 1rem 2rem;
+  transition: all 300ms linear;
+  border-radius: 4px;
+}
+
+.nav__btn:hover {
+  background: var(--cl-primary-700);
+}

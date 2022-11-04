@@ -1,0 +1,67 @@
+.register {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: rgb(253, 253, 253);
+  position: relative;
+}
+
+.register__content {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: min(90%, 500px);
+  color: rgb(28, 28, 28);
+  padding-top: 10rem;
+}
+
+.register__headingH1 {
+  font-size: 1.8rem;
+}
+
+.register__headingH2 {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.register__form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.register__form > input {
+  height: 40px;
+  border: 1px solid rgb(176, 176, 176);
+  border-radius: 5px;
+  outline-width: 0;
+  margin-bottom: 10px;
+  background: transparent;
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  /* position: absolute; */
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.register__checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.register__btn {
+  height: 40px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  background-color: rgb(206, 35, 35);
+  border-radius: 5px;
+  color: #fff;
+}

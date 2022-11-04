@@ -10,7 +10,6 @@
 
 .login__nav {
   position: fixed;
-  /* background: yellow; */
   width: 100%;
   display: flex;
   flex-direction: row;

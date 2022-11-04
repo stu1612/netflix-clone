@@ -1,19 +1,41 @@
 // npm
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // files
 import logo from "../assets/images/netflix_logo.png";
 import styles from "../styles/Welcome.module.css";
+import navStyles from "../styles/Nav.module.css";
 
 export default function Welcome() {
+  // local state
+  const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(null);
+  const [error, setError] = useState(null);
+
+  // methods
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  function handleChange(event) {
+    if (!isValidEmail(event.target.value)) {
+      setError("Email is invalid");
+      setIsValid(false);
+    } else {
+      setError(null);
+      setIsValid(true);
+    }
+    setEmail(event.target.value);
+  }
   return (
     <div className={styles.login}>
-      <nav className={styles.login__nav}>
+      <nav className={navStyles.nav}>
         <Link to={"/"}>
-          <img src={logo} alt="" className={styles.nav__logo} />
+          <img src={logo} alt="" className={navStyles.nav__logo} />
         </Link>
         <Link to={"/signin"}>
-          <button className={styles.nav__btn}>Sign in</button>
+          <button className={navStyles.nav__btn}>Sign in</button>
         </Link>
       </nav>
       {/* <div className={styles.login__gradient} /> */}
@@ -31,12 +53,11 @@ export default function Welcome() {
           <input
             type="email"
             placeholder="Email Address"
-            onChange={() => {}}
+            onChange={handleChange}
             className={styles.login__input}
             required
           />
-          {/* <Link to={"/registration"} state={email}> */}
-          <Link to={"/registration"}>
+          <Link to={"/registration"} state={email}>
             <button
               className={styles.login__btn}
               // disabled={isValid ? false : true}
@@ -45,7 +66,7 @@ export default function Welcome() {
             </button>
           </Link>
         </form>
-        {/* {error && <p className="login__error">{error}</p>} */}
+        {error && <p className="login__error">{error}</p>}
       </div>
     </div>
   );
