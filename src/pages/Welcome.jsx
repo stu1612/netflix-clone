@@ -7,6 +7,8 @@ import logo from "../assets/images/netflix_logo.png";
 import styles from "../styles/Welcome.module.css";
 import navStyles from "../styles/Nav.module.css";
 import btnStyles from "../styles/Button.module.css";
+import json from "../JSON/welcome.json";
+import Input from "../components/Input";
 
 export default function Welcome() {
   // local state
@@ -46,11 +48,17 @@ export default function Welcome() {
           Ready to watch? Enter your email to create or restart your membership.
         </h3>
         <form className={styles.form}>
-          <input
+          {/* <input
             type="email"
             placeholder="Email Address"
             onChange={handleChange}
             className={styles.input}
+          /> */}
+          <Input
+            state={[email, setEmail]}
+            setup={json.email}
+            classname={styles.input}
+            onChange={handleChange}
           />
           <Link to={"/registration"} state={email}>
             <button className={styles.btn}>Get started</button>

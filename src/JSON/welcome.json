@@ -1,0 +1,8 @@
+{
+  "email": {
+    "placeholder": "Email",
+    "autofocus": true,
+    "type": "email",
+    "required": true
+  }
+}
