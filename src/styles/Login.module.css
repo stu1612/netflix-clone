@@ -1,26 +1,4 @@
-.login {
-  position: relative;
-  height: 100vh;
-  background-image: url("../assets/images/netflix_wallpaper.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-}
-
-.signin__gradient {
-  width: 100%;
-  z-index: 1;
-  height: 100vh;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.2) 54%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-}
-
-.login__form {
+.form {
   width: min(90%, 500px);
   padding: 5rem;
   height: auto;
@@ -33,13 +11,15 @@
   flex-direction: column;
 }
 
-.signin__headingH1 {
+.heading1 {
   text-align: left;
   margin-bottom: 25px;
   color: #fff;
+  font-size: 2.6rem;
+  font-family: "Bold";
 }
 
-.signin__headingH4 {
+.heading4 {
   text-align: left;
   margin-top: 25px;
 }
@@ -51,9 +31,10 @@
   border-radius: 5px;
   padding: 5px 15px;
   border: none;
+  font-size: 1.2rem;
 }
 
-.signin__btn {
+.btn {
   padding: 16px 20px;
   font-size: 1rem;
   color: #fff;
@@ -61,19 +42,22 @@
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.5s ease;
+  font-size: 1.6rem;
 }
 
-.signin__btn:hover {
+.btn:hover {
   background: var(--cl-primary-700);
 }
 
 .span {
   color: rgb(161, 161, 161);
   margin-right: 10px;
+  font-size: 1.2rem;
 }
 
 .span__link {
   color: #fff;
+  font-size: 1.2rem;
 }
 
 .span__link:hover {

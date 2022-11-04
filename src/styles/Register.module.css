@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.register__content {
+.content {
   position: absolute;
   top: 30%;
   left: 50%;
@@ -16,24 +16,25 @@
   padding-top: 10rem;
 }
 
-.register__headingH1 {
-  font-size: 1.8rem;
+.heading1 {
+  font-size: 2rem;
+  font-family: "Bold";
 }
 
-.register__headingH2 {
+.heading2 {
   margin-top: 20px;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 300;
 }
 
-.register__form {
+.form {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.register__form > input {
+.form > input {
   height: 40px;
   border: 1px solid rgb(176, 176, 176);
   border-radius: 5px;
@@ -41,6 +42,7 @@
   margin-bottom: 10px;
   background: transparent;
   padding: 10px;
+  font-size: 1.2rem;
 }
 
 input[type="checkbox"] {
@@ -51,17 +53,24 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-.register__checkbox {
+.checkbox {
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 1.2rem;
 }
 
-.register__btn {
+.btn {
   height: 40px;
   margin-top: 30px;
   text-transform: uppercase;
-  background-color: rgb(206, 35, 35);
+  background: var(--cl-primary-500);
   border-radius: 5px;
   color: #fff;
+  font-size: 1.6rem;
+  transition: all 300ms linear;
+}
+
+.btn:hover {
+  background: var(--cl-primary-700);
 }

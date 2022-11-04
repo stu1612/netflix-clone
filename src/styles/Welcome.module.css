@@ -1,47 +1,8 @@
-.login {
-  position: relative;
-  height: 100vh;
-  background-image: url("../assets/images/netflix_wallpaper.jpeg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-}
-
-.login__nav {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
-}
-
-.nav__logo {
-  object-fit: contain;
-  width: 150px;
-}
-
-.nav__btn {
-  font-size: 1.6rem;
-  font-weight: 600;
-  background: var(--cl-primary-500);
-  color: #fff;
-  padding: 1rem 2rem;
-  transition: all 300ms linear;
-  border-radius: 4px;
-}
-
-.nav__btn:hover {
-  background: var(--cl-primary-700);
-}
-
-.login__content {
+.content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
   color: #fff;
   z-index: 1;
   padding: 20px;
@@ -49,60 +10,77 @@
   width: min(90%, 700px);
 }
 
-.content__h1 {
-  font-size: 3.1rem;
+.heading1 {
+  font-size: clamp(2rem, 5vw, 4.1rem);
   margin-bottom: 20px;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
+  font-family: "Black";
 }
 
-.content__h2 {
+.heading2 {
   font-size: 2rem;
   font-weight: 300;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
+  font-family: "Bold";
 }
 
-.content__h3 {
+.heading3 {
   font-size: 1.3rem;
   font-weight: 400;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
+  font-family: "Regular";
 }
 
-.login__gradient {
-  width: 100%;
-  z-index: 1;
-  height: 100vh;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.2) 54%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-}
-
-.login__form {
+.form {
   height: 5rem;
   display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
 }
 
-.login__input,
-.login__btn {
+.input,
+.btn {
   height: 100%;
 }
 
-.login__input {
+.input {
   flex: 1;
   outline-width: 0;
+  font-size: 1.4rem;
+  padding-left: 20px;
 }
 
-.login__btn {
-  flex: 2;
-  padding: 0 8rem;
+.btn {
+  flex: 1;
+  width: 100%;
+  margin-top: 1rem;
+  background: var(--cl-primary-500);
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 0 2rem;
+  transition: all 300ms linear;
 }
 
-.login__error {
+.btn:hover {
+  background: var(--cl-primary-700);
+}
+
+.error {
   color: rgb(197, 139, 32);
   font-weight: 800;
   padding-top: 10px;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+  }
+
+  .btn {
+    flex: 2;
+    padding: 0 8rem;
+    margin-top: 0;
+  }
 }

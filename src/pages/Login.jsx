@@ -7,8 +7,9 @@ import { Modal } from "../components/Modal";
 import useModal from "../hooks/useModal";
 import Loader from "../components/Loader";
 import useLogin from "../hooks/useLogin";
-import logo from "../assets/images/netflix_logo.png";
 
+// styles
+import logo from "../assets/images/netflix_logo.png";
 import styles from "../styles/Login.module.css";
 import navStyles from "../styles/Nav.module.css";
 
@@ -38,15 +39,15 @@ export default function SignUp() {
   }
 
   return (
-    <div className={styles.login}>
+    <div className="netflix__banner">
       <nav className={navStyles.nav}>
         <Link to={"/"}>
           <img src={logo} alt="" className={navStyles.nav__logo} />
         </Link>
       </nav>
-      {/* <div className={styles.signin__gradient} /> */}
-      <form onSubmit={handleSubmit} className={styles.login__form}>
-        <h1 className={styles.signin__headingH1}>Sign In</h1>
+      <div className="gradient__wrapper" />
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h1 className={styles.heading1}>Sign In</h1>
         <input
           placeholder="Email"
           name="email"
@@ -63,38 +64,20 @@ export default function SignUp() {
           onChange={(e) => setPassword(e.target.value)}
           className={styles.input}
         />
-        <button type="submit" className={styles.signin__btn}>
+        <button type="submit" className={styles.btn}>
           Sign In
         </button>
-        <h4 className={styles.signin__headingH4}>
+        <h4 className={styles.heeading4}>
           <span className={styles.span}>New to Netflix?</span>
           <Link to={"/registration"}>
             <span className={styles.span__link}>Sign Up now</span>
           </Link>
         </h4>
       </form>
+      <Modal isShowing={isShowing}>
+        <Loader />
+      </Modal>
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
-}
-
-{
-  /* <form onSubmit={handleSubmit}>
-<input
-  type="email"
-  placeholder="Email"
-  value={email}
-  onChange={(event) => setEmail(event.target.value)}
-/>
-<input
-  type="password"
-  placeholder="Password"
-  value={password}
-  onChange={(event) => setPassword(event.target.value)}
-/>
-<button>Continue</button>
-</form>
-<Modal isShowing={isShowing}>
-<Loader />
-</Modal>
-{error && <p>{error}</p>} */
 }

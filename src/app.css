@@ -14,10 +14,50 @@
   --cl-dark: #111;
 }
 
+/* FONTS */
+
+@font-face {
+  font-family: "Black";
+  src: local("NetflixBlack"),
+    url("./assets/fonts/NetflixSansBlack.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bold";
+  src: local("NetflixBold"),
+    url("./assets/fonts/NetflixSansBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Light";
+  src: local("NetflixLight"),
+    url("./assets/fonts/NetflixSansLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Medium";
+  src: local("NetflixMedium"),
+    url("./assets/fonts/NetflixSansMedium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Regular";
+  src: local("NetflixRegular"),
+    url("./assets/fonts/NetflixSansRegular.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Thin";
+  src: local("NetflixThin"),
+    url("./assets/fonts/NetflixSansThin.ttf") format("truetype");
+}
+
 html,
 body {
   height: 100%;
   font-size: 62.5%;
+  font-family: "Medium";
 }
 
 body {
@@ -43,6 +83,7 @@ svg {
 button,
 input {
   overflow: visible;
+  font-family: "Medium";
 }
 
 button,
@@ -82,6 +123,30 @@ h6 {
 
 fieldset {
   border: none;
+}
+
+/* GENERAL CSS STYLING */
+
+.netflix__banner {
+  position: relative;
+  height: 100vh;
+  background-image: url("./assets/images/netflix_wallpaper.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.gradient__wrapper {
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.2) 54%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
 }
 
 /* special styles for stu */

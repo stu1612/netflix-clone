@@ -1,0 +1,29 @@
+.btn {
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  transition: all 300ms linear;
+  border-radius: 4px;
+}
+
+.red__btn {
+  composes: btn;
+  background: var(--cl-primary-500);
+  color: #fff;
+}
+
+.red__btn:hover {
+  background: var(--cl-primary-700);
+}
+
+.white__btn {
+  composes: btn;
+  background: transparent;
+  border: 2px solid var(--cl-primary-500);
+  color: var(--cl-dark);
+}
+
+.white__btn:hover {
+  background-color: var(--cl-primary-500);
+  color: #fff;
+}
