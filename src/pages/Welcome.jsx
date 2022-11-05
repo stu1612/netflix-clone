@@ -3,32 +3,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // files
-import validateEmail from "../utils/validateEmail";
-import logo from "../assets/images/netflix_logo.png";
-import styles from "../styles/Welcome.module.css";
-import navStyles from "../styles/Nav.module.css";
-import btnStyles from "../styles/Button.module.css";
-import json from "../JSON/welcome.json";
 import Input from "../components/Input";
+import json from "../JSON/welcome.json";
+import validateEmail from "../utils/validateEmail";
+
+// styles
+import btnStyles from "../styles/Button.module.css";
+import logo from "../assets/images/netflix_logo.png";
+import navStyles from "../styles/Nav.module.css";
+import styles from "../styles/Welcome.module.css";
 
 export default function Welcome() {
   // local state
   const [email, setEmail] = useState("");
-  // const [error, setError] = useState(null);
 
-  // methods
-  // function isValidEmail(email) {
-  //   return /\S+@\S+\.\S+/.test(email);
-  // }
-
-  // function handleChange(event) {
-  //   if (!isValidEmail(event.target.value)) {
-  //     setError("Email is invalid");
-  //   } else {
-  //     setError(null);
-  //   }
-  //   setEmail(event.target.value);
-  // }
   return (
     <div className="netflix__banner">
       <nav className={navStyles.nav}>
@@ -49,24 +37,16 @@ export default function Welcome() {
           Ready to watch? Enter your email to create or restart your membership.
         </h3>
         <form className={styles.form}>
-          {/* <input
-            type="email"
-            placeholder="Email Address"
-            onChange={handleChange}
-            className={styles.input}
-          /> */}
           <Input
             state={[email, setEmail]}
             setup={json.email}
             classname={styles.input}
             validation={validateEmail}
-            // onChange={handleChange}
           />
           <Link to={email ? "/registration" : ""} state={email}>
             <button className={styles.btn}>Get started</button>
           </Link>
         </form>
-        {/* {error && <p className="error">{error}</p>} */}
       </div>
     </div>
   );

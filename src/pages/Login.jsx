@@ -4,19 +4,20 @@ import { useNavigate, Link } from "react-router-dom";
 
 // files
 import { Modal } from "../components/Modal";
-import useModal from "../hooks/useModal";
 import Loader from "../components/Loader";
 import useLogin from "../hooks/useLogin";
+import useModal from "../hooks/useModal";
 
 // styles
 import logo from "../assets/images/netflix_logo.png";
-import styles from "../styles/Login.module.css";
 import navStyles from "../styles/Nav.module.css";
+import styles from "../styles/Login.module.css";
 
 export default function SignUp() {
   // local state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   // properties
   const { error, login } = useLogin();
   const { isShowing, toggle } = useModal();

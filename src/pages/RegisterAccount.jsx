@@ -1,27 +1,31 @@
 // npm
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 // files
 import { Modal } from "../components/Modal";
-import useModal from "../hooks/useModal";
 import Loader from "../components/Loader";
+import useModal from "../hooks/useModal";
 import useSignUp from "../hooks/useSignUp";
 
 // styles
-import logo from "../assets/images/netflix_logo.png";
-import styles from "../styles/Register.module.css";
-import navStyles from "../styles/Nav.module.css";
 import btnStyles from "../styles/Button.module.css";
+import logo from "../assets/images/netflix_logo.png";
+import navStyles from "../styles/Nav.module.css";
+import styles from "../styles/Register.module.css";
 
 export default function Register() {
-  // local state
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   // properties
   const { error, signup } = useSignUp();
   const { isShowing, toggle } = useModal();
+  const location = useLocation();
+  const returnedEmail = location.state[0];
+  console.log(returnedEmail);
   const navigate = useNavigate();
+
+  // local state
+  const [email, setEmail] = useState(returnedEmail);
+  const [password, setPassword] = useState("");
 
   // methods
   function handleSubmit(event) {
@@ -57,13 +61,7 @@ export default function Register() {
           Just a few more steps and you're finished. We hate paperwork too.
         </h2>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
+          <input value={email} disabled />
           <input
             type="password"
             placeholder="Password"

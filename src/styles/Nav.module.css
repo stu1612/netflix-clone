@@ -12,3 +12,13 @@
   object-fit: contain;
   width: 150px;
 }
+
+.nav__main {
+  composes: nav;
+  background: yellow;
+  height: 80px;
+}
+
+.nav__avatar {
+  width: 40px;
+}
