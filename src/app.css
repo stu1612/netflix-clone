@@ -149,6 +149,20 @@ fieldset {
   );
 }
 
+.input__container {
+  position: relative;
+  width: 100%;
+}
+
+.error {
+  color: rgb(224, 172, 76);
+  font-size: 1.6rem;
+  font-weight: 800;
+  padding-top: 10px;
+  text-align: left;
+  display: flex;
+}
+
 /* special styles for stu */
 .container {
   display: flex;

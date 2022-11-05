@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // files
+import validateEmail from "../utils/validateEmail";
 import logo from "../assets/images/netflix_logo.png";
 import styles from "../styles/Welcome.module.css";
 import navStyles from "../styles/Nav.module.css";
@@ -13,21 +14,21 @@ import Input from "../components/Input";
 export default function Welcome() {
   // local state
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   // methods
-  function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
+  // function isValidEmail(email) {
+  //   return /\S+@\S+\.\S+/.test(email);
+  // }
 
-  function handleChange(event) {
-    if (!isValidEmail(event.target.value)) {
-      setError("Email is invalid");
-    } else {
-      setError(null);
-    }
-    setEmail(event.target.value);
-  }
+  // function handleChange(event) {
+  //   if (!isValidEmail(event.target.value)) {
+  //     setError("Email is invalid");
+  //   } else {
+  //     setError(null);
+  //   }
+  //   setEmail(event.target.value);
+  // }
   return (
     <div className="netflix__banner">
       <nav className={navStyles.nav}>
@@ -58,13 +59,14 @@ export default function Welcome() {
             state={[email, setEmail]}
             setup={json.email}
             classname={styles.input}
-            onChange={handleChange}
+            validation={validateEmail}
+            // onChange={handleChange}
           />
-          <Link to={"/registration"} state={email}>
+          <Link to={email ? "/registration" : ""} state={email}>
             <button className={styles.btn}>Get started</button>
           </Link>
         </form>
-        {error && <p className="error">{error}</p>}
+        {/* {error && <p className="error">{error}</p>} */}
       </div>
     </div>
   );
