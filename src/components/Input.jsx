@@ -23,7 +23,8 @@ export default function Input({ validation, setup, state, classname }) {
         required={required}
         className={classname}
       />
-      <small className="error">{error}</small>
+      {/* <small className="error">{error}</small> */}
+      <small className="error">I am a error</small>
     </div>
   );
 }

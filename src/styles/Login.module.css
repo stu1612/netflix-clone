@@ -1,7 +1,7 @@
 .form {
-  width: min(90%, 500px);
-  padding: 5rem;
-  height: auto;
+  width: 100%;
+  padding: 10rem 2rem;
+  height: 100%;
   background: rgba(0, 0, 0, 0.68);
   position: absolute;
   top: 50%;
@@ -27,11 +27,11 @@
 .input {
   outline-width: 0;
   height: 40px;
-  margin-bottom: 14px;
   border-radius: 5px;
   padding: 5px 15px;
   border: none;
   font-size: 1.2rem;
+  width: 100%;
 }
 
 .btn {
@@ -74,4 +74,13 @@
   margin-top: 10px;
   text-align: left;
   color: orange;
+}
+
+@media (min-width: 768px) {
+  .form {
+    height: auto;
+    padding: 5rem;
+    width: min(90%, 500px);
+    border-radius: 4px;
+  }
 }

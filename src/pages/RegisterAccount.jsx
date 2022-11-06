@@ -4,9 +4,13 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 
 // files
 import { Modal } from "../components/Modal";
+import Input from "../components/Input";
+import json from "../JSON/signup.json";
 import Loader from "../components/Loader";
 import useModal from "../hooks/useModal";
 import useSignUp from "../hooks/useSignUp";
+import validateEmail from "../utils/validateEmail";
+import validateString from "../utils/validateString";
 
 // styles
 import btnStyles from "../styles/Button.module.css";
@@ -61,24 +65,25 @@ export default function Register() {
           Just a few more steps and you're finished. We hate paperwork too.
         </h2>
         <form onSubmit={handleSubmit} className={styles.form}>
-          {returnedEmail && <input value={userEmail} disabled />}
-          {!returnedEmail && (
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
+          <div className="form__wrapper">
+            {returnedEmail && (
+              <input value={userEmail} className={styles.input} disabled />
+            )}
+            {!returnedEmail && (
+              <Input
+                state={[email, setEmail]}
+                setup={json.email}
+                classname={styles.input}
+                validation={validateEmail}
+              />
+            )}
+            <Input
+              state={[password, setPassword]}
+              setup={json.password}
+              classname={styles.input}
+              validation={validateString}
             />
-          )}
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
+          </div>
           <div className={styles.checkbox}>
             <input type="checkbox" />
             <span>Please do not email me Netflix special offers</span>

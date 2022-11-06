@@ -7,6 +7,10 @@ import { Modal } from "../components/Modal";
 import Loader from "../components/Loader";
 import useLogin from "../hooks/useLogin";
 import useModal from "../hooks/useModal";
+import Input from "../components/Input";
+import validateEmail from "../utils/validateEmail";
+import validateString from "../utils/validateString";
+import json from "../JSON/signup.json";
 
 // styles
 import logo from "../assets/images/netflix_logo.png";
@@ -49,25 +53,36 @@ export default function SignUp() {
       <div className="gradient__wrapper" />
       <form onSubmit={handleSubmit} className={styles.form}>
         <h1 className={styles.heading1}>Sign In</h1>
-        <input
-          placeholder="Email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={styles.input}
-        />
-        <input
-          placeholder="Password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={styles.input}
-        />
+        <div className="form__wrapper">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={styles.input}
+          />
+          {/* <Input
+            state={[email, setEmail]}
+            setup={json.email}
+            classname={styles.input}
+            validation={validateEmail}
+          />
+          <Input
+            state={[password, setPassword]}
+            setup={json.password}
+            classname={styles.input}
+            validation={validateString}
+          /> */}
+        </div>
         <button type="submit" className={styles.btn}>
           Sign In
         </button>
+
         <h4 className={styles.heeading4}>
           <span className={styles.span}>New to Netflix?</span>
           <Link to={"/registration"}>
