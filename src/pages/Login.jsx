@@ -1,16 +1,13 @@
 // npm
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // files
 import { Modal } from "../components/Modal";
 import Loader from "../components/Loader";
 import useLogin from "../hooks/useLogin";
 import useModal from "../hooks/useModal";
-import Input from "../components/Input";
-import validateEmail from "../utils/validateEmail";
-import validateString from "../utils/validateString";
-import json from "../JSON/signup.json";
+import SignupForm from "../components/SignupForm";
 
 // styles
 import logo from "../assets/images/netflix_logo.png";
@@ -25,7 +22,6 @@ export default function SignUp() {
   // properties
   const { error, login } = useLogin();
   const { isShowing, toggle } = useModal();
-  const navigate = useNavigate();
 
   // methods
   function handleSubmit(event) {
@@ -36,7 +32,6 @@ export default function SignUp() {
       setPassword("");
     }
     setTimeout(() => {
-      navigate("/");
       toggle();
     }, 1000);
 
@@ -54,30 +49,11 @@ export default function SignUp() {
       <form onSubmit={handleSubmit} className={styles.form}>
         <h1 className={styles.heading1}>Sign In</h1>
         <div className="form__wrapper">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={styles.input}
+          <SignupForm
+            emailState={[email, setEmail]}
+            passwordState={[password, setPassword]}
+            classStyle={styles.input}
           />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
-          />
-          {/* <Input
-            state={[email, setEmail]}
-            setup={json.email}
-            classname={styles.input}
-            validation={validateEmail}
-          />
-          <Input
-            state={[password, setPassword]}
-            setup={json.password}
-            classname={styles.input}
-            validation={validateString}
-          /> */}
         </div>
         <button type="submit" className={styles.btn}>
           Sign In

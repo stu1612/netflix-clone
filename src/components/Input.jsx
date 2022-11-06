@@ -18,13 +18,13 @@ export default function Input({ validation, setup, state, classname }) {
         value={getter}
         placeholder={placeholder}
         autoFocus={autofocus}
-        onBlur={() => onValidate(validation, getter, setter, setError)}
+        // onBlur={() => onValidate(validation, getter, setter, setError)}
         onChange={(event) => setter(event.target.value)}
         required={required}
         className={classname}
       />
-      {/* <small className="error">{error}</small> */}
-      <small className="error">I am a error</small>
+      <small className="error">{error}</small>
+      {/* <small className="error">I am a error</small> */}
     </div>
   );
 }
