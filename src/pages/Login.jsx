@@ -34,7 +34,6 @@ export default function SignUp() {
     setTimeout(() => {
       toggle();
     }, 1000);
-
     toggle();
   }
 
@@ -54,18 +53,18 @@ export default function SignUp() {
             passwordState={[password, setPassword]}
             classStyle={styles.input}
           />
+          {error && <small className="error">{error}</small>}
         </div>
         <button type="submit" className={styles.btn}>
           Sign In
         </button>
 
-        <h4 className={styles.heeading4}>
+        <h4 className={styles.heading4}>
           <span className={styles.span}>New to Netflix?</span>
           <Link to={"/registration"}>
             <span className={styles.span__link}>Sign Up now</span>
           </Link>
         </h4>
-        {error && <p className={styles.error}>{error}</p>}
       </form>
       {loading && (
         <Modal isShowing={isShowing}>
