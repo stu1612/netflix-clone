@@ -20,7 +20,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
 
   // properties
-  const { error, login } = useLogin();
+  const { login, error, loading } = useLogin();
   const { isShowing, toggle } = useModal();
 
   // methods
@@ -65,11 +65,13 @@ export default function SignUp() {
             <span className={styles.span__link}>Sign Up now</span>
           </Link>
         </h4>
+        {error && <p className={styles.error}>{error}</p>}
       </form>
-      <Modal isShowing={isShowing}>
-        <Loader />
-      </Modal>
-      {error && <p className={styles.error}>{error}</p>}
+      {loading && (
+        <Modal isShowing={isShowing}>
+          <Loader />
+        </Modal>
+      )}
     </div>
   );
 }
