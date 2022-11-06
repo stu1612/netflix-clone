@@ -19,20 +19,20 @@ export default function Register() {
   const { error, signup } = useSignUp();
   const { isShowing, toggle } = useModal();
   const location = useLocation();
-  const returnedEmail = location.state[0];
-  console.log(returnedEmail);
+  const returnedEmail = location.state && location.state[0];
   const navigate = useNavigate();
 
   // local state
-  const [email, setEmail] = useState(returnedEmail);
+  const [userEmail, setUserEmail] = useState(returnedEmail);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // methods
   function handleSubmit(event) {
     event.preventDefault();
-    signup(email, password);
+    signup(userEmail ? userEmail : email, password);
     if (email && password) {
-      setEmail("");
+      setUserEmail("");
       setPassword("");
     }
     setTimeout(() => {
@@ -61,7 +61,17 @@ export default function Register() {
           Just a few more steps and you're finished. We hate paperwork too.
         </h2>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <input value={email} disabled />
+          {returnedEmail && <input value={userEmail} disabled />}
+          {!returnedEmail && (
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+          )}
+
           <input
             type="password"
             placeholder="Password"

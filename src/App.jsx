@@ -17,10 +17,7 @@ import "./assets/fonts/NetflixSansThin.ttf";
 
 function App() {
   // properties
-  // const { user, authIsReady } = useAuthContext();
-  const { authIsReady } = useAuthContext();
-
-  const user = "stu";
+  const { user, authIsReady } = useAuthContext();
 
   return (
     <div className="App">

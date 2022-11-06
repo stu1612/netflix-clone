@@ -6,6 +6,7 @@ import { motion, useScroll } from "framer-motion";
 // files
 import logo from "../assets/images/netflix_logo.png";
 import avatar from "../assets/images/netflix_avatar.png";
+import { navVarient } from "../animations";
 
 // styles
 import styles from "../styles/Nav.module.css";
@@ -16,11 +17,6 @@ export default function Navbar() {
 
   // properties
   const { scrollY } = useScroll();
-
-  const variants = {
-    visible: { y: 0, opacity: 1 },
-    hidden: { y: -10, opacity: 0 },
-  };
 
   // methods
   function updateScrollPos() {
@@ -38,7 +34,7 @@ export default function Navbar() {
   return (
     <motion.nav
       className={styles.nav__main}
-      variants={variants}
+      variants={navVarient}
       animate={show ? "visible" : "hidden"}
       transition={{ ease: "linear", duration: 0.3 }}
     >
