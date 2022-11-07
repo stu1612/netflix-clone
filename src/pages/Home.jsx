@@ -2,6 +2,8 @@
 import useLogout from "../hooks/useLogout";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
+import { apiRequests } from "../apiRequests";
+import Movies from "../components/Movies";
 
 export default function Home() {
   const { logout, error } = useLogout();
@@ -18,6 +20,7 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
+      <Movies fetchUrl={apiRequests.fetchTrending} />
 
       {error && <small className="error">{error}</small>}
 
