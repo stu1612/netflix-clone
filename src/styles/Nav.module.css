@@ -16,7 +16,7 @@
 
 .nav__main {
   composes: nav;
-  background: yellow;
+  background: var(--cl-dark);
   height: 80px;
 }
 

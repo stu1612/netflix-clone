@@ -27,3 +27,17 @@
   background-color: var(--cl-primary-500);
   color: #fff;
 }
+
+.banner__btn {
+  composes: btn;
+  background-color: #fff;
+  color: var(--cl-dark);
+  margin-right: 1rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+.banner__btn:hover {
+  background-color: rgb(171, 171, 171);
+}

@@ -1,6 +1,7 @@
 // files
 import useLogout from "../hooks/useLogout";
 import Navbar from "../components/Navbar";
+import Banner from "../components/Banner";
 
 export default function Home() {
   const { logout, error } = useLogout();
@@ -16,25 +17,8 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
-      <h1 style={{ fontSize: "8rem", color: "white" }}>hello</h1>
+      <Banner />
+
       {error && <small className="error">{error}</small>}
 
       <button onClick={handleLogout}>Logout</button>
