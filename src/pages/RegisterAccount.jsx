@@ -1,6 +1,6 @@
 // npm
 import { useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // files
 import { Modal } from "../components/Modal";
@@ -9,8 +9,6 @@ import json from "../JSON/signup.json";
 import Loader from "../components/Loader";
 import useModal from "../hooks/useModal";
 import useSignUp from "../hooks/useSignUp";
-import validateEmail from "../utils/validateEmail";
-import validateString from "../utils/validateString";
 
 // styles
 import btnStyles from "../styles/Button.module.css";
@@ -20,11 +18,10 @@ import styles from "../styles/Register.module.css";
 
 export default function Register() {
   // properties
-  const { error, signup } = useSignUp();
+  const { signup, error, loading } = useSignUp();
   const { isShowing, toggle } = useModal();
   const location = useLocation();
   const returnedEmail = location.state && location.state[0];
-  const navigate = useNavigate();
 
   // local state
   const [userEmail, setUserEmail] = useState(returnedEmail);
@@ -40,7 +37,6 @@ export default function Register() {
       setPassword("");
     }
     setTimeout(() => {
-      navigate("/");
       toggle();
     }, 1000);
 
@@ -74,15 +70,14 @@ export default function Register() {
                 state={[email, setEmail]}
                 setup={json.email}
                 classname={styles.input}
-                validation={validateEmail}
               />
             )}
             <Input
               state={[password, setPassword]}
               setup={json.password}
               classname={styles.input}
-              validation={validateString}
             />
+            {error && <small className="error">{error}</small>}
           </div>
           <div className={styles.checkbox}>
             <input type="checkbox" />
@@ -91,10 +86,11 @@ export default function Register() {
           <button className={styles.btn}>continue</button>
         </form>
       </div>
-      <Modal isShowing={isShowing}>
-        <Loader />
-      </Modal>
-      {error && <p>{error}</p>}
+      {loading && (
+        <Modal isShowing={isShowing}>
+          <Loader />
+        </Modal>
+      )}
     </div>
   );
 }

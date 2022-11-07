@@ -1,9 +1,12 @@
 // npm
 import { useState } from "react";
 
-export default function Input({ setup, state, classname }) {
+// files
+import onValidate from "../utils/validateInput";
+
+export default function Input({ setup, state, classname, validation }) {
   // local state
-  const [error] = useState("");
+  const [error, setError] = useState("");
   // properties
   const { type, placeholder, autofocus, required } = setup;
   const [getter, setter] = state;
@@ -15,6 +18,7 @@ export default function Input({ setup, state, classname }) {
         value={getter}
         placeholder={placeholder}
         autoFocus={autofocus}
+        onBlur={() => onValidate(validation, getter, setter, setError)}
         onChange={(event) => setter(event.target.value)}
         required={required}
         className={classname}

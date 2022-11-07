@@ -1,33 +1,37 @@
 // npm
 import { useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // files
 import { auth } from "../firebase/firebase";
 import useAuthContext from "./useAuthContext";
 
 export default function useLogout() {
+  // local state
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+
+  // global state
   const { dispatch } = useAuthContext();
+
+  // properties
+  const navigate = useNavigate();
 
   async function logout() {
     setError(null);
-    setLoading(true);
 
     try {
       await signOut(auth).then(() => {
         dispatch({ type: "LOGOUT" });
+        navigate("/signin");
       });
       if (!isCancelled) {
         setError(null);
-        setLoading(false);
       }
     } catch (err) {
       if (!isCancelled) {
         setError(err.message);
-        setLoading(false);
         console.error(err.message);
       }
     }
@@ -37,5 +41,5 @@ export default function useLogout() {
     return () => setIsCancelled(true);
   }, []);
 
-  return { error, loading, logout };
+  return { logout, error };
 }
