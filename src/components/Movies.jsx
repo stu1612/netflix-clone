@@ -2,17 +2,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Movies({ fetchUrl }) {
+// files
+import MovieCard from "./MovieCard";
+
+// styles
+import styles from "../styles/Movies.module.css";
+
+export default function Movies({ title, fetchUrl }) {
   // local state
   const [movies, setMovies] = useState([]);
-  const [movie, setMovie] = useState({});
 
   // properties
   const API_URL = "https://api.themoviedb.org/3";
   const apiRequest = axios.create({ baseURL: API_URL });
-  //   const api_image_url = "https://image.tmdb.org/t/p/original/";
-
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   // methods
   useEffect(() => {
@@ -24,26 +26,21 @@ export default function Movies({ fetchUrl }) {
     fetchMoviesData();
   }, [fetchUrl]);
 
-  async function fetchMovie(id) {
-    const data = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`
-    );
-    console.log(data);
-  }
+  //   async function fetchMovie(id) {
+  //     const data = await axios.get(
+  //       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`
+  //     );
+  //     console.log(data);
+  //   }
 
-  const moviesList = movies.map((movie) => (
-    <h2
-      style={{ backgroundColor: "white", padding: "2rem" }}
-      key={movie.id}
-      onClick={() => fetchMovie(movie.id)}
-    >
-      {movie.name || movie.title}
-    </h2>
-  ));
+  const moviesList = movies.map((movie) => {
+    return <MovieCard key={movie.id} movie={movie} />;
+  });
+
   return (
-    <div>
-      Movies
-      {moviesList}
+    <div className={styles.row}>
+      <h2 className={styles.headingH2}>{title}</h2>
+      <div className={styles.posters}>{moviesList}</div>
     </div>
   );
 }

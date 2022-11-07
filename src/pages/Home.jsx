@@ -20,7 +20,11 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
-      <Movies fetchUrl={apiRequests.fetchTest} />
+      <Movies title="Trending Now" fetchUrl={apiRequests.fetchTrending} />
+      <Movies
+        title="Netflix Originals"
+        fetchUrl={apiRequests.fetchNetflixOriginals}
+      />
 
       {error && <small className="error">{error}</small>}
 

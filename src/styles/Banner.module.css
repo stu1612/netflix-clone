@@ -23,25 +23,25 @@
   /* ff 3.6+ */
   background: -moz-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 13%,
-    rgba(6, 6, 6, 0.15) 56%,
-    rgba(167, 46, 167, 0) 91%
+    rgba(17, 17, 17, 1) 13%,
+    rgba(17, 17, 17, 0.15) 56%,
+    rgba(77, 17, 17, 0) 91%
   );
 
   /* safari 5.1+,chrome 10+ */
   background: -webkit-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 13%,
-    rgba(6, 6, 6, 0.15) 56%,
-    rgba(167, 46, 167, 0) 91%
+    rgba(17, 17, 17, 1) 13%,
+    rgba(17, 17, 17, 0.15) 56%,
+    rgba(77, 17, 17, 0) 91%
   );
 
   /* opera 11.10+ */
   background: -o-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 13%,
-    rgba(6, 6, 6, 0.15) 56%,
-    rgba(167, 46, 167, 0) 91%
+    rgba(17, 17, 17, 1) 13%,
+    rgba(17, 17, 17, 0.15) 56%,
+    rgba(77, 17, 17, 0) 91%
   );
 
   /* ie 6-9 */
@@ -50,17 +50,17 @@
   /* ie 10+ */
   background: -ms-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 13%,
-    rgba(6, 6, 6, 0.15) 56%,
-    rgba(167, 46, 167, 0) 91%
+    rgba(17, 17, 17, 1) 13%,
+    rgba(17, 17, 17, 0.15) 56%,
+    rgba(77, 17, 17, 0) 91%
   );
 
   /* global 94%+ browsers support */
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 1) 13%,
-    rgba(6, 6, 6, 0.15) 56%,
-    rgba(167, 46, 167, 0) 91%
+    rgba(17, 17, 17, 1) 13%,
+    rgba(17, 17, 17, 0.15) 56%,
+    rgba(77, 17, 17, 0) 91%
   );
 }
 
@@ -90,14 +90,18 @@
 }
 
 .banner__fade {
-  height: 100px;
+  height: 200px;
+  /* width: 80%; */
   width: 100%;
   position: absolute;
   bottom: 0;
+  /* right: 0; */
   background-image: linear-gradient(
     180deg,
     transparent,
-    rgba(37, 37, 37, 0.61),
+    /* rgba(37, 37, 37, 0.01),
+    rgba(37, 37, 37, 0.31), */
+      rgba(17, 17, 17, 0.61),
     #111
   );
 }
