@@ -13,7 +13,6 @@
   z-index: 1000;
   width: min(90%, 500px);
   margin: 5rem auto;
-  /* background-color: white; */
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;

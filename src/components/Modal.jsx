@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 // files
 import styles from "../styles/Modal.module.css";
 
-// export const Modal = ({ isShowing, hide, children }) =>
 export const Modal = ({ isShowing, children }) =>
   isShowing
     ? ReactDOM.createPortal(
@@ -16,7 +15,6 @@ export const Modal = ({ isShowing, children }) =>
             tabIndex={-1}
             role="dialog"
           >
-            {/* <button onClick={}>close</button> */}
             <div className={styles.modal}>{children}</div>
           </div>
         </div>,

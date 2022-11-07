@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 // files
 import Input from "../components/Input";
-import json from "../JSON/welcome.json";
+import json from "../JSON/signup.json";
 import validateEmail from "../utils/validateEmail";
 
 // styles

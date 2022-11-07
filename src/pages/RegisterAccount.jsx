@@ -3,12 +3,11 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // files
-import { Modal } from "../components/Modal";
 import Input from "../components/Input";
 import json from "../JSON/signup.json";
-import Loader from "../components/Loader";
 import useModal from "../hooks/useModal";
 import useSignUp from "../hooks/useSignUp";
+import LoadingModal from "../components/LoadingModal";
 
 // styles
 import btnStyles from "../styles/Button.module.css";
@@ -17,9 +16,11 @@ import navStyles from "../styles/Nav.module.css";
 import styles from "../styles/Register.module.css";
 
 export default function Register() {
-  // properties
+  // global state
   const { signup, error, loading } = useSignUp();
   const { isShowing, toggle } = useModal();
+
+  // properties
   const location = useLocation();
   const returnedEmail = location.state && location.state[0];
 
@@ -33,14 +34,18 @@ export default function Register() {
     event.preventDefault();
     signup(userEmail ? userEmail : email, password);
     if (email && password) {
-      setUserEmail("");
-      setPassword("");
+      resetForm();
     }
     setTimeout(() => {
       toggle();
     }, 1000);
 
     toggle();
+  }
+
+  function resetForm() {
+    setUserEmail("");
+    setPassword("");
   }
 
   return (
@@ -86,11 +91,7 @@ export default function Register() {
           <button className={styles.btn}>continue</button>
         </form>
       </div>
-      {loading && (
-        <Modal isShowing={isShowing}>
-          <Loader />
-        </Modal>
-      )}
+      {loading && <LoadingModal isShowing={isShowing} />}
     </div>
   );
 }

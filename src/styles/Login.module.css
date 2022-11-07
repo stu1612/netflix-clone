@@ -70,12 +70,6 @@
   flex-direction: column;
 }
 
-.error {
-  margin-top: 10px;
-  text-align: left;
-  color: orange;
-}
-
 @media (min-width: 768px) {
   .form {
     height: auto;

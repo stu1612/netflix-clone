@@ -3,11 +3,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // files
-import { Modal } from "../components/Modal";
-import Loader from "../components/Loader";
 import useLogin from "../hooks/useLogin";
 import useModal from "../hooks/useModal";
 import SignupForm from "../components/SignupForm";
+import LoadingModal from "../components/LoadingModal";
 
 // styles
 import logo from "../assets/images/netflix_logo.png";
@@ -28,13 +27,17 @@ export default function SignUp() {
     event.preventDefault();
     login(email, password);
     if (email && password) {
-      setEmail("");
-      setPassword("");
+      resetForm();
     }
     setTimeout(() => {
       toggle();
     }, 1000);
     toggle();
+  }
+
+  function resetForm() {
+    setEmail("");
+    setPassword("");
   }
 
   return (
@@ -66,11 +69,7 @@ export default function SignUp() {
           </Link>
         </h4>
       </form>
-      {loading && (
-        <Modal isShowing={isShowing}>
-          <Loader />
-        </Modal>
-      )}
+      {loading && <LoadingModal isShowing={isShowing} />}
     </div>
   );
 }
