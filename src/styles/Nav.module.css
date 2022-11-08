@@ -16,8 +16,9 @@
 
 .nav__main {
   composes: nav;
-  background: var(--cl-dark);
   height: 80px;
+  background: var(--cl-dark);
+  opacity: 0;
 }
 
 .nav__avatar {
