@@ -19,24 +19,23 @@ export default function MovieDetail({ id }) {
           `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
         )
         .then((res) => {
-          setMovieData(res);
+          const obj = res.data;
+          setMovieData(obj);
         });
     }
     fetchMovie(id);
   }, [id]);
 
-  console.log(movieData);
-
-  // const { backdrop_path } = movieData.data;
-
-  return (
+  const movieDetails = movieData && (
     <div className={styles.container__outer}>
       <div className={styles.container__inner}>
         <div className={styles.container__image}>
-          {/* <img src={`${api_image_url}${backdrop_path}`} alt="" /> */}
+          <img src={`${api_image_url}${movieData.backdrop_path}`} alt="" />
         </div>
       </div>
       <div className={styles.container__content}></div>
     </div>
   );
+
+  return movieDetails;
 }
