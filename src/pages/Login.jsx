@@ -19,32 +19,20 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
 
   // properties
-  // const { login, error, loading } = useLogin();
-  const { login, error } = useLogin();
+  const { login, error, loading } = useLogin();
   const { isShowing, toggle } = useModal();
 
-  //testing
-  const loading = true;
-
-  useEffect(() => {
-    toggle();
-  }, []);
-
   // methods
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   login(email, password);
-  //   if (email && password) {
-  //     resetForm();
-  //   }
-  //   setTimeout(() => {
-  //     toggle();
-  //   }, 1000);
-  //   toggle();
-  // }
-
-  function handleSubmit() {
-    console.log("hello");
+  function handleSubmit(event) {
+    event.preventDefault();
+    login(email, password);
+    if (email && password) {
+      resetForm();
+    }
+    setTimeout(() => {
+      toggle();
+    }, 1000);
+    toggle();
   }
 
   function resetForm() {
