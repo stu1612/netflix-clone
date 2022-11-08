@@ -15,9 +15,9 @@ export default function MovieCard({ movie }) {
 
   const { poster_path, name, title, id } = movie;
 
-  // useEffect(() => {
-  //   toggle();
-  // }, []);
+  function onClickHandler() {
+    toggle();
+  }
 
   return (
     <>
@@ -26,11 +26,11 @@ export default function MovieCard({ movie }) {
           src={`${api_image_url}${poster_path}`}
           alt={name || title}
           className={styles.poster__image}
-          onClick={() => alert(`Id is ${id}`)}
+          onClick={onClickHandler}
         />
       </div>
       <Modal isShowing={isShowing}>
-        <MovieDetail />
+        <MovieDetail id={id} />
       </Modal>
     </>
   );
