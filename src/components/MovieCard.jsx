@@ -8,7 +8,7 @@ export default function MovieCard({ movie }) {
   const { poster_path, name, title } = movie;
   return (
     <>
-      <div className={styles.poster} onClick={() => null}>
+      <div className={styles.poster}>
         <img
           src={`${api_image_url}${poster_path}`}
           alt={name || title}

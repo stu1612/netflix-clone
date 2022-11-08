@@ -4,6 +4,7 @@ import axios from "axios";
 
 // files
 import MovieCard from "./MovieCard";
+import MovieDetail from "../components/MovieDetail";
 
 // styles
 import styles from "../styles/Movies.module.css";
@@ -11,6 +12,7 @@ import styles from "../styles/Movies.module.css";
 export default function Movies({ title, fetchUrl }) {
   // local state
   const [movies, setMovies] = useState([]);
+  const [showDetails, setShowDetails] = useState(false);
 
   // properties
   const API_URL = "https://api.themoviedb.org/3";
@@ -41,6 +43,7 @@ export default function Movies({ title, fetchUrl }) {
     <div className={styles.row}>
       <h2 className={styles.headingH2}>{title}</h2>
       <div className={styles.posters}>{moviesList}</div>
+      {showDetails && <MovieDetail />}
     </div>
   );
 }
