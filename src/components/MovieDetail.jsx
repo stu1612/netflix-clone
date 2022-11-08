@@ -9,7 +9,7 @@ export default function MovieDetail({ id }) {
   useEffect(() => {
     async function fetchMovie(id) {
       const data = await axios.get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
       );
       console.log(data);
     }
