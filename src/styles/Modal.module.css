@@ -1,13 +1,13 @@
 .modal_bg {
   position: fixed;
   inset: 0;
-  z-index: 999;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
+  background: transparent;
 }
 
-.modal_wrapper {
+/* .modal_wrapper {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -20,4 +20,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */

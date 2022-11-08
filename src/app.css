@@ -127,6 +127,18 @@ fieldset {
 
 /* GENERAL CSS STYLING */
 
+.loader {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .netflix__banner {
   position: relative;
   height: 100vh;
