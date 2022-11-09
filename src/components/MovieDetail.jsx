@@ -32,8 +32,13 @@ export default function MovieDetail({ id }) {
         <div className={styles.container__image}>
           <img src={`${api_image_url}${movieData.backdrop_path}`} alt="" />
         </div>
+        <div className={styles.container__content}>
+          <div>
+            <h1>I am some text</h1>
+          </div>
+          <span className={styles.close}>X</span>
+        </div>
       </div>
-      <div className={styles.container__content}></div>
     </div>
   );
 

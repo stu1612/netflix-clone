@@ -1,5 +1,6 @@
 // npm
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // files
 import styles from "../styles/Movies.module.css";
