@@ -8,12 +8,13 @@ import convertTime from "../utils/convertTime";
 
 // styles
 import styles from "../styles/MediaDetail.module.css";
+import Tabs from "./Tabs";
 
 export default function MediaDetail({ mediaDetail }) {
   // properties
   const api_image_url = "https://image.tmdb.org/t/p/original/";
 
-  const { title, vote_average, overview, release_date, runtime } = mediaDetail;
+  const { title, vote_average, release_date, runtime } = mediaDetail;
   console.log(mediaDetail);
   return (
     <div className={styles.container__outer}>
@@ -33,9 +34,11 @@ export default function MediaDetail({ mediaDetail }) {
               {toFixed(vote_average)} <AiFillStar />
             </span>
           </div>
+          <Tabs mediaDetail={mediaDetail} />
           <div>
-            <h2>Overview</h2>
-            <p>{overview}</p>
+            <h3>
+              staring <span></span>
+            </h3>
           </div>
           <span className={styles.close}>X</span>
         </div>
