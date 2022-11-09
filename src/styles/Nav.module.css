@@ -21,6 +21,11 @@
   opacity: 0;
 }
 
+.nav__sub {
+  composes: nav__main;
+  opacity: 1;
+}
+
 .nav__avatar {
   width: 40px;
 }

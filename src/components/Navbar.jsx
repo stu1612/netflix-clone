@@ -18,14 +18,6 @@ export default function Navbar() {
   // properties
   const { scrollY } = useScroll();
 
-  // methods
-  // function updateScrollPos() {
-  //   if (scrollY?.current < scrollY.prev) {
-  //     setShow(false);
-  //   } else if (scrollY.current > 100 && scrollY?.current > scrollY?.prev) {
-  //     setShow(true);
-  //   }
-  // }
   function updateScrollPos() {
     if (scrollY.current > 100 && scrollY?.current > scrollY?.prev) {
       setShow(true);
