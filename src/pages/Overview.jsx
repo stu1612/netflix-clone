@@ -8,6 +8,7 @@ import avatar from "../assets/images/netflix_avatar.png";
 
 // styles
 import navStyles from "../styles/Nav.module.css";
+import MediaDetail from "../components/MediaDetail";
 
 export default function Overview() {
   // local state
@@ -45,7 +46,7 @@ export default function Overview() {
           />
         </Link>
       </nav>
-      <main></main>
+      <main>{mediaDetail && <MediaDetail mediaDetail={mediaDetail} />}</main>
     </div>
   );
 }
