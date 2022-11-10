@@ -29,12 +29,7 @@ export default function Home() {
         movie={movie}
       />
       {/* <Movies title="Top Rated" fetchUrl={apiRequests.fetchTopRated} /> */}
-      <Media
-        title="Top TV"
-        fetchUrl={apiRequests.fetchTV}
-        // programme={programme}
-        movie={!movie}
-      />
+      <Media title="Top TV" fetchUrl={apiRequests.fetchTV} movie={!movie} />
 
       {error && <small className="error">{error}</small>}
 

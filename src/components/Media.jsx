@@ -6,7 +6,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import styles from "../styles/Movies.module.css";
 
-export default function Movies({ title, fetchUrl, movie }) {
+export default function Media({ title, fetchUrl, movie }) {
   // local state
   const [items, setItems] = useState([]);
 
@@ -18,7 +18,6 @@ export default function Movies({ title, fetchUrl, movie }) {
   useEffect(() => {
     async function fetchMoviesData() {
       const request = await apiRequest.get(fetchUrl);
-      console.log(request);
       setItems(request.data.results);
       return request;
     }

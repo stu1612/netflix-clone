@@ -19,18 +19,18 @@ export default function Overview() {
   const isMovie = state[1];
 
   // methods
-  useEffect(() => {
-    async function fetchMovie(id) {
-      const url = isMovie
-        ? `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
-        : `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
-      await axios.get(url).then((res) => {
-        const obj = res.data;
-        setMediaDetail(obj);
-      });
-    }
-    fetchMovie(state);
-  }, [state]);
+  // useEffect(() => {
+  //   async function fetchMovie(id) {
+  //     const url = isMovie
+  //       ? `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
+  //       : `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
+  //     await axios.get(url).then((res) => {
+  //       const obj = res.data;
+  //       setMediaDetail(obj);
+  //     });
+  //   }
+  //   fetchMovie(state);
+  // }, [state]);
 
   return (
     <div className="overview">
