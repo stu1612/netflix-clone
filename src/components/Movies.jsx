@@ -30,6 +30,7 @@ export default function Movies({ title, fetchUrl }) {
     fetchMoviesData();
   }, [fetchUrl]);
 
+  console.log(movies);
   //   async function fetchMovie(id) {
   //     const data = await axios.get(
   //       `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`

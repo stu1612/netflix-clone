@@ -14,7 +14,9 @@ export default function MediaDetail({ mediaDetail }) {
   // properties
   const api_image_url = "https://image.tmdb.org/t/p/original/";
 
-  const { title, vote_average, release_date, runtime } = mediaDetail;
+  const { title, vote_average, release_date, runtime, first_air_date } =
+    mediaDetail;
+
   console.log(mediaDetail);
   return (
     <div className={styles.container__outer}>
@@ -27,7 +29,8 @@ export default function MediaDetail({ mediaDetail }) {
             <div>
               <h1 className={styles.headingH1}>{title}</h1>
               <span>
-                {subString(release_date)} | {convertTime(runtime)}
+                {subString(release_date || first_air_date)} |{" "}
+                {convertTime(runtime)}
               </span>
             </div>
             <span>
