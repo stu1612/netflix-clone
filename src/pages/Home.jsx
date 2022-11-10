@@ -1,12 +1,16 @@
+import { useState } from "react";
+
 // files
 import useLogout from "../hooks/useLogout";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import { apiRequests } from "../apiRequests";
-import Movies from "../components/Movies";
+import Media from "../components/Media";
 
 export default function Home() {
   const { logout, error } = useLogout();
+  const [movie] = useState(true);
+  const [programme] = useState(true);
 
   // methods
   function handleLogout() {
@@ -20,9 +24,17 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
-      {/* <Movies title="Trending Now" fetchUrl={apiRequests.fetchTrending} />
-      <Movies title="Top Rated" fetchUrl={apiRequests.fetchTopRated} /> */}
-      <Movies title="Top TV" fetchUrl={apiRequests.fetchTV} />
+      <Media
+        title="Trending Now"
+        fetchUrl={apiRequests.fetchTrending}
+        movie={movie}
+      />
+      {/* <Movies title="Top Rated" fetchUrl={apiRequests.fetchTopRated} /> */}
+      <Media
+        title="Top TV"
+        fetchUrl={apiRequests.fetchTV}
+        programme={programme}
+      />
 
       {error && <small className="error">{error}</small>}
 

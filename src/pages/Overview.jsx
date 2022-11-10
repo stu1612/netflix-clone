@@ -16,19 +16,18 @@ export default function Overview() {
   // properties
   const location = useLocation();
   const { state } = location;
+  const isMovie = state[1];
 
   // methods
   useEffect(() => {
     async function fetchMovie(id) {
-      await axios
-        .get(
-          // `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
-          `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
-        )
-        .then((res) => {
-          const obj = res.data;
-          setMediaDetail(obj);
-        });
+      const url = isMovie
+        ? `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`
+        : `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`;
+      await axios.get(url).then((res) => {
+        const obj = res.data;
+        setMediaDetail(obj);
+      });
     }
     fetchMovie(state);
   }, [state]);
