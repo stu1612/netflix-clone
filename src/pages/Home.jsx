@@ -10,7 +10,6 @@ import Media from "../components/Media";
 export default function Home() {
   const { logout, error } = useLogout();
   const [movie] = useState(true);
-  const [programme] = useState(true);
 
   // methods
   function handleLogout() {
@@ -33,7 +32,8 @@ export default function Home() {
       <Media
         title="Top TV"
         fetchUrl={apiRequests.fetchTV}
-        programme={programme}
+        // programme={programme}
+        movie={!movie}
       />
 
       {error && <small className="error">{error}</small>}
